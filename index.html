@@ -24,17 +24,7 @@
         height: 100vh;
       }
 
-      #graph-container {
-        flex: 1;
-        display: flex;
-      }
-
-      #graph {
-        align-self: center;
-        margin: auto;
-      }
-
-      h3 {
+      #head {
         padding-left: 1em;
         padding-right: 1em;
         display: flex;
@@ -42,40 +32,53 @@
         align-items: center;
       }
 
-      h3 > img {
+      #head > img {
         width: 2.0em;
         height: 2.0em;
       }
       
-      h3 > span {
+      #head > span {
         flex: 1;
         padding-left: 0.5em;
         line-height: 2.0em;
       }
 
-      form {
+      #head > #menu-button {
+        cursor: pointer;
+      }
+
+      #input-area {
         padding-left: 1em;
         padding-right: 1em;
         margin-bottom: 0px;
       }
       
       #graph-container {
+        flex: 1;
+        display: flex;
         text-align: center;
         background-color: black;
         color: rgba(255, 255, 255, 0.8);
+      }
+
+      #graph-container > svg {
+        align-self: center;
+        margin: auto;
       }
     </style>
   </head>
   
   <body>
     <main id="page">
-    <h3>
-      <img src="./images/exchange.svg" />
-      
-      <span>Exchange Rate Viewer</span>
-    </h3>
+      <h3 id="head">
+        <img src="./images/exchange.svg" />
+        
+        <span>Exchange Rate Viewer</span>
+        
+        <img id="menu-button" src="./images/menu.svg" />
+      </h3>
 
-      <form class="pure-form pure-form-stacked">
+      <form id="input-area" class="pure-form pure-form-stacked" style="height: 0px;">
 
         <fieldset>
           <div class="pure-g">
@@ -118,7 +121,7 @@
       </form>
         
       <div id="graph-container">
-        <svg id="graph" />
+        <svg />
       </div>
     </div>
 
@@ -148,7 +151,7 @@
           return;
         }
         
-        const svg = d3.select("#graph");
+        const svg = d3.select("#graph-container").select('svg');
 
         // Reset width & height.
         svg.attr('width', null).attr('height', null);
@@ -314,7 +317,7 @@
             console.error('Failed to load data.', err);
           });
       };
-      
+
       // Bind callback after the content has been loaded.
       document.addEventListener('DOMContentLoaded', () => {
 
@@ -350,6 +353,30 @@
         // Bind refresh callback for resizing window.
         window.addEventListener('resize', refreshGraph);
 
+        const inputArea = document.getElementById('input-area');
+        
+        // Function to toggle visibility of input form.
+        const toggleInputArea = () => {
+
+          if (inputArea.style.height === '0px') {
+
+            window.localStorage.showInput = inputArea.style.height = null;
+          } else {
+
+            window.localStorage.showInput = inputArea.style.height = '0px';
+          }
+
+          refreshGraph();
+        };
+
+        document.getElementById('menu-button').addEventListener('click', toggleInputArea);
+
+        if (window.localStorage.showInput !== '0px') {
+
+          inputArea.style.height = null;
+        }
+
+        // Restore input status.
         if (window.localStorage.formData) {
           
           try {
