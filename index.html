@@ -260,11 +260,16 @@
           .values(inputs)
           .forEach(input => input.addEventListener('change', refreshGraph));
         
-        if (window.localStorge.formData) {
+        if (window.localStorage.formData) {
           
           try {
             const { baseCurrency, targetCurrency, fromDate, toDate } = JSON.parse(window.localStorage.formData);
-            
+           
+            inputs.baseCurrency.value = baseCurrency;
+            inputs.targetCurrency.value = targetCurrency;
+            inputs.fromDate.value = fromDate;
+            inputs.toDate.value = toDate;
+
             renderGraph(baseCurrency, targetCurrency, fromDate, toDate);
           } catch (error) {
             
