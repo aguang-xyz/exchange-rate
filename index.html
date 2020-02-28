@@ -14,74 +14,114 @@
     <!--[if gt IE 8]><!-->
         <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-responsive-min.css" />
     <!--<![endif]-->
-    
-    <title>Exchange History</title>
+
+    <title>Exchange Rate Viewer</title>
     
     <style>
-      body {
-        
-        padding: 1em;
+      #page {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+      }
+
+      #graph-container {
+        flex: 1;
+        display: flex;
+      }
+
+      #graph {
+        align-self: center;
+        margin: auto;
+      }
+
+      h3 {
+        padding-left: 1em;
+        padding-right: 1em;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+
+      h3 > img {
+        width: 2.0em;
+        height: 2.0em;
+      }
+      
+      h3 > span {
+        flex: 1;
+        padding-left: 0.5em;
+        line-height: 2.0em;
+      }
+
+      form {
+        padding-left: 1em;
+        padding-right: 1em;
+        margin-bottom: 0px;
       }
       
       #graph-container {
-        
         text-align: center;
+        background-color: black;
+        color: rgba(255, 255, 255, 0.8);
       }
     </style>
   </head>
   
   <body>
-    <form class="pure-form pure-form-stacked">
-
-      <fieldset>
-        <legend>
-          Exchange Rate History.
-        </legend>
-
-        <div class="pure-g">
-          <div class="pure-u-1 pure-u-md-1-2">
-            <label for="base-currency">
-              Base Currency
-            </label>
-            
-            <select id="base-currency" class="pure-u-23-24">
-              <option value="AUD" selected>AUD</option>
-              <option value="NZD">NZD</option>
-              <option value="USD">USD</option>
-              <option value="CNY">CNY</option>
-            </select>
-          </div>
-
-          <div class="pure-u-1 pure-u-md-1-2">
-            <label for="target-currency">Target Currency</label>
-            
-            <select id="target-currency" class="pure-u-23-24">
-              <option value="AUD">AUD</option>
-              <option value="NZD" selected>NZD</option>
-              <option value="USD">USD</option>
-              <option value="CNY">CNY</option>
-            </select>
-          </div>
-                                                                        
-          <div class="pure-u-1 pure-u-md-1-2">
-            <label for="from-date">From Date</label>
-            
-            <input id="from-date" class="pure-u-23-24" type="date" />
-          </div>
-
-          <div class="pure-u-1 pure-u-md-1-2">
-            <label for="to-date">To Date</label>
-            
-            <input id="to-date" class="pure-u-23-24" type="date" />
-          </div>
-        </div>
-      </fieldset>
+    <main id="page">
+    <h3>
+      <img src="./images/exchange.svg" />
       
+      <span>Exchange Rate Viewer</span>
+    </h3>
+
+      <form class="pure-form pure-form-stacked">
+
+        <fieldset>
+          <div class="pure-g">
+            <div class="pure-u-1 pure-u-md-1-2">
+              <label for="base-currency">
+                Base Currency
+              </label>
+              
+              <select id="base-currency" class="pure-u-23-24">
+                <option value="AUD">AUD</option>
+                <option value="NZD">NZD</option>
+                <option value="USD">USD</option>
+                <option value="CNY">CNY</option>
+              </select>
+            </div>
+
+            <div class="pure-u-1 pure-u-md-1-2">
+              <label for="target-currency">Target Currency</label>
+              <select id="target-currency" class="pure-u-23-24">
+                <option value="AUD">AUD</option>
+                <option value="NZD">NZD</option>
+                <option value="USD">USD</option>
+                <option value="CNY">CNY</option>
+              </select>
+            </div>
+                                                                          
+            <div class="pure-u-1 pure-u-md-1-2">
+              <label for="from-date">From Date</label>
+              
+              <input id="from-date" class="pure-u-23-24" type="date" />
+            </div>
+
+            <div class="pure-u-1 pure-u-md-1-2">
+              <label for="to-date">To Date</label>
+              
+              <input id="to-date" class="pure-u-23-24" type="date" />
+            </div>
+          </div>
+        </fieldset>
+      </form>
+        
       <div id="graph-container">
         <svg id="graph" />
       </div>
-    </form>
-    
+    </div>
+
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script>
       // Function to display alerts.
@@ -108,14 +148,27 @@
           return;
         }
         
+        const svg = d3.select("#graph");
+
+        // Reset width & height.
+        svg.attr('width', null).attr('height', null);
+
+        // Clear old child-nodes.
+        svg.selectAll('*').remove();
+        
         query(baseCurrency, targetCurrency, fromDate, toDate)
           .then(dataset => {
           
             // Dimensions.
-            const
-              width = Math.floor(window.innerWidth * 0.9),
-              height = Math.floor(window.innerHeight * 0.5),
-              padding = 30;
+            let 
+              width = document.getElementById('graph-container').clientWidth,
+              height = document.getElementById('graph-container').clientHeight,
+              padding = 50;
+
+            if (height > width) {
+
+              height = width;
+            }
             
             // Scales.
             const
@@ -128,14 +181,8 @@
                 .domain([d3.min(dataset, ({ rate }) => rate), d3.max(dataset, ({ rate }) => rate)])
                 .range([height - padding, padding]);
           
-            // Svg element.
-            const svg = d3
-              .select("#graph")
-              .attr("width", width)
-              .attr("height", height);
-            
-            // Clear old child-nodes.
-            svg.selectAll('*').remove();
+            // Set width & height.
+            svg.attr("width", width).attr("height", height);
             
             // X-Axis.
             svg
@@ -154,9 +201,9 @@
               .append("path")
               .datum(dataset)
               .attr("fill", "none")
-              .attr("stroke", "black")
-              .attr("stroke-width", 1.5)
-              .attr("stroke-linejoin", "round")
+              .attr("stroke", "yellow")
+              .attr("stroke-width", 1.0)
+              .attr("stroke-linejoin", "milter")
               .attr("stroke-linecap", "round")
               .attr("d", d3.line().x(({ date }) => xScale(date)).y(({ rate }) => yScale(rate)));
           
@@ -174,7 +221,47 @@
               .attr('stroke-width', 1)
               .attr('x', - 110 * tooltipRatio)
               .attr('y', - 30 * tooltipRatio);
-          
+
+            tooltip
+              .append('line')
+              .attr('x1', 0)
+              .attr('y1', -30 * tooltipRatio)
+              .attr('x2', 0)
+              .attr('y2', -10000)
+              .attr('stroke-width', 1.0)
+              .attr('stroke', 'white')
+              .attr('stroke-dasharray', '5,5');
+ 
+            tooltip
+              .append('line')
+              .attr('x1', 0)
+              .attr('y1', 30 * tooltipRatio)
+              .attr('x2', 0)
+              .attr('y2', 10000)
+              .attr('stroke-width', 1.0)
+              .attr('stroke', 'white')
+              .attr('stroke-dasharray', '5,5');
+
+            tooltip
+              .append('line')
+              .attr('x1', -110 * tooltipRatio)
+              .attr('y1', 0)
+              .attr('x2', -10000)
+              .attr('y2', 0)
+              .attr('stroke-width', 1.0)
+              .attr('stroke', 'white')
+              .attr('stroke-dasharray', '5,5');
+
+            tooltip
+              .append('line')
+              .attr('x1', 110 * tooltipRatio)
+              .attr('y1', 0)
+              .attr('x2', 10000)
+              .attr('y2', 0)
+              .attr('stroke-width', 1.0)
+              .attr('stroke', 'white')
+              .attr('stroke-dasharray', '5,5');
+
             const tooltipTextRows = [
               tooltip
                 .append('text')
@@ -255,11 +342,14 @@
           renderGraph(baseCurrency, targetCurrency, fromDate, toDate);
         }
         
-        // Bind callbacks for input changes.
+        // Bind refresh callback for input changes.
         Object
           .values(inputs)
           .forEach(input => input.addEventListener('change', refreshGraph));
-        
+
+        // Bind refresh callback for resizing window.
+        window.addEventListener('resize', refreshGraph);
+
         if (window.localStorage.formData) {
           
           try {
