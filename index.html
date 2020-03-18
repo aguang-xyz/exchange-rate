@@ -462,7 +462,7 @@
 
             return Object
               .entries(rates)
-              .map(([date, rate]) => ({ date: new Date(date), rate: Math.floor(rate[targetCurrency] / 1000) * 1000 }))
+              .map(([date, rate]) => ({ date: new Date(date), rate: rate[targetCurrency] }))
               .sort(({ date: x }, { date: y }) => x < y ? -1 : x > y ? 1 : 0)          
           });
       
