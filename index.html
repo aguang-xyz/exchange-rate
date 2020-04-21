@@ -715,6 +715,29 @@
             
             console.error(error);
           }
+        } else {
+
+          try {
+            const baseCurrency = 'NZD';
+            const targetCurrency = 'CNY';
+
+            const fromDate = new Date(Date.now() - 1000 * 3600 * 24 * 365)
+              .toISOString().substr(0, 10);
+
+            const toDate = new Date(Date.now())
+              .toISOString().substr(0, 10);
+           
+            inputs.baseCurrency.value = baseCurrency;
+            inputs.targetCurrency.value = targetCurrency;
+            inputs.fromDate.value = fromDate;
+            inputs.toDate.value = toDate;
+
+            renderGraph(baseCurrency, targetCurrency, fromDate, toDate);
+          } catch (error) {
+            
+            console.error(error);
+          }
+
         }
       });
     </script>
