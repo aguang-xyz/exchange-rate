@@ -1,4 +1,4 @@
-# ![](https://aguang-xyz.github.io/exchange-rate-viewer/images/exchange.svg) Exchange Rate Viewer.
+# Exchange Rate Viewer.
 
 ![](https://raw.githubusercontent.com/aguang-xyz/exchange-rate/master/images/preview.png)
 
