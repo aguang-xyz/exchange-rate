@@ -1,24 +1,19 @@
 <!doctype html5>
-
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" />
-    
     <!--[if lte IE 8]>
         <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-responsive-old-ie-min.css" />
     <![endif]-->
-    
     <!--[if gt IE 8]><!-->
-        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-responsive-min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-responsive-min.css" />
     <!--<![endif]-->
-
     <title>Exchange Rate Viewer</title>
-    
     <style>
-      #page {
+        #page {
         display: flex;
         flex-direction: column;
         height: 100vh;
@@ -66,679 +61,673 @@
         margin: auto;
       }
     </style>
-  </head>
-  
-  <body>
+</head>
+
+<body>
     <main id="page">
-      <h3 id="head">
-        <img id="menu-button" src="./images/menu.svg" />
-        <span>Exchange Rate Viewer</span>
-        <a href="https://github.com/aguang-xyz/exchange-rate-viewer">
-	        <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" />
-	      </a>
-      </h3>
+        <h3 id="head">
+            <img id="menu-button" src="./images/menu.svg" />
+            <span>Exchange Rate Viewer</span>
+            <a href="https://github.com/aguang-xyz/exchange-rate-viewer">
+                <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" />
+            </a>
+        </h3>
+        <form id="input-area" class="pure-form pure-form-stacked" style="height: 0px;">
+            <fieldset>
+                <div class="pure-g">
+                    <div class="pure-u-1 pure-u-md-1-2">
+                        <label for="base-currency">
+                            Base Currency
+                        </label>
+                        <select id="base-currency" class="pure-u-23-24">
+                            <option value="AED">AED - United Arab Emirates Dirham</option>
+                            <option value="AFN">AFN - Afghanistan Afghani</option>
+                            <option value="ALL">ALL - Albania Lek</option>
+                            <option value="AMD">AMD - Armenia Dram</option>
+                            <option value="ANG">ANG - Netherlands Antilles Guilder</option>
+                            <option value="AOA">AOA - Angola Kwanza</option>
+                            <option value="ARS">ARS - Argentina Peso</option>
+                            <option value="AUD">AUD - Australia Dollar</option>
+                            <option value="AWG">AWG - Aruba Guilder</option>
+                            <option value="AZN">AZN - Azerbaijan Manat</option>
+                            <option value="BAM">BAM - Bosnia and Herzegovina Convertible Mark</option>
+                            <option value="BBD">BBD - Barbados Dollar</option>
+                            <option value="BDT">BDT - Bangladesh Taka</option>
+                            <option value="BGN">BGN - Bulgaria Lev</option>
+                            <option value="BHD">BHD - Bahrain Dinar</option>
+                            <option value="BIF">BIF - Burundi Franc</option>
+                            <option value="BMD">BMD - Bermuda Dollar</option>
+                            <option value="BND">BND - Brunei Darussalam Dollar</option>
+                            <option value="BOB">BOB - Bolivia Bolíviano</option>
+                            <option value="BRL">BRL - Brazil Real</option>
+                            <option value="BSD">BSD - Bahamas Dollar</option>
+                            <option value="BTN">BTN - Bhutan Ngultrum</option>
+                            <option value="BWP">BWP - Botswana Pula</option>
+                            <option value="BYN">BYN - Belarus Ruble</option>
+                            <option value="BZD">BZD - Belize Dollar</option>
+                            <option value="CAD">CAD - Canada Dollar</option>
+                            <option value="CDF">CDF - Congo/Kinshasa Franc</option>
+                            <option value="CHF">CHF - Switzerland Franc</option>
+                            <option value="CLP">CLP - Chile Peso</option>
+                            <option value="CNY">CNY - China Yuan Renminbi</option>
+                            <option value="COP">COP - Colombia Peso</option>
+                            <option value="CRC">CRC - Costa Rica Colon</option>
+                            <option value="CUC">CUC - Cuba Convertible Peso</option>
+                            <option value="CUP">CUP - Cuba Peso</option>
+                            <option value="CVE">CVE - Cape Verde Escudo</option>
+                            <option value="CZK">CZK - Czech Republic Koruna</option>
+                            <option value="DJF">DJF - Djibouti Franc</option>
+                            <option value="DKK">DKK - Denmark Krone</option>
+                            <option value="DOP">DOP - Dominican Republic Peso</option>
+                            <option value="DZD">DZD - Algeria Dinar</option>
+                            <option value="EGP">EGP - Egypt Pound</option>
+                            <option value="ERN">ERN - Eritrea Nakfa</option>
+                            <option value="ETB">ETB - Ethiopia Birr</option>
+                            <option value="EUR">EUR - Euro Member Countries</option>
+                            <option value="FJD">FJD - Fiji Dollar</option>
+                            <option value="FKP">FKP - Falkland Islands (Malvinas) Pound</option>
+                            <option value="GBP">GBP - United Kingdom Pound</option>
+                            <option value="GEL">GEL - Georgia Lari</option>
+                            <option value="GGP">GGP - Guernsey Pound</option>
+                            <option value="GHS">GHS - Ghana Cedi</option>
+                            <option value="GIP">GIP - Gibraltar Pound</option>
+                            <option value="GMD">GMD - Gambia Dalasi</option>
+                            <option value="GNF">GNF - Guinea Franc</option>
+                            <option value="GTQ">GTQ - Guatemala Quetzal</option>
+                            <option value="GYD">GYD - Guyana Dollar</option>
+                            <option value="HKD">HKD - Hong Kong Dollar</option>
+                            <option value="HNL">HNL - Honduras Lempira</option>
+                            <option value="HRK">HRK - Croatia Kuna</option>
+                            <option value="HTG">HTG - Haiti Gourde</option>
+                            <option value="HUF">HUF - Hungary Forint</option>
+                            <option value="IDR">IDR - Indonesia Rupiah</option>
+                            <option value="ILS">ILS - Israel Shekel</option>
+                            <option value="IMP">IMP - Isle of Man Pound</option>
+                            <option value="INR">INR - India Rupee</option>
+                            <option value="IQD">IQD - Iraq Dinar</option>
+                            <option value="IRR">IRR - Iran Rial</option>
+                            <option value="ISK">ISK - Iceland Krona</option>
+                            <option value="JEP">JEP - Jersey Pound</option>
+                            <option value="JMD">JMD - Jamaica Dollar</option>
+                            <option value="JOD">JOD - Jordan Dinar</option>
+                            <option value="JPY">JPY - Japan Yen</option>
+                            <option value="KES">KES - Kenya Shilling</option>
+                            <option value="KGS">KGS - Kyrgyzstan Som</option>
+                            <option value="KHR">KHR - Cambodia Riel</option>
+                            <option value="KMF">KMF - Comorian Franc</option>
+                            <option value="KPW">KPW - Korea (North) Won</option>
+                            <option value="KRW">KRW - Korea (South) Won</option>
+                            <option value="KWD">KWD - Kuwait Dinar</option>
+                            <option value="KYD">KYD - Cayman Islands Dollar</option>
+                            <option value="KZT">KZT - Kazakhstan Tenge</option>
+                            <option value="LAK">LAK - Laos Kip</option>
+                            <option value="LBP">LBP - Lebanon Pound</option>
+                            <option value="LKR">LKR - Sri Lanka Rupee</option>
+                            <option value="LRD">LRD - Liberia Dollar</option>
+                            <option value="LSL">LSL - Lesotho Loti</option>
+                            <option value="LYD">LYD - Libya Dinar</option>
+                            <option value="MAD">MAD - Morocco Dirham</option>
+                            <option value="MDL">MDL - Moldova Leu</option>
+                            <option value="MGA">MGA - Madagascar Ariary</option>
+                            <option value="MKD">MKD - Macedonia Denar</option>
+                            <option value="MMK">MMK - Myanmar (Burma) Kyat</option>
+                            <option value="MNT">MNT - Mongolia Tughrik</option>
+                            <option value="MOP">MOP - Macau Pataca</option>
+                            <option value="MRU">MRU - Mauritania Ouguiya</option>
+                            <option value="MUR">MUR - Mauritius Rupee</option>
+                            <option value="MVR">MVR - Maldives (Maldive Islands) Rufiyaa</option>
+                            <option value="MWK">MWK - Malawi Kwacha</option>
+                            <option value="MXN">MXN - Mexico Peso</option>
+                            <option value="MYR">MYR - Malaysia Ringgit</option>
+                            <option value="MZN">MZN - Mozambique Metical</option>
+                            <option value="NAD">NAD - Namibia Dollar</option>
+                            <option value="NGN">NGN - Nigeria Naira</option>
+                            <option value="NIO">NIO - Nicaragua Cordoba</option>
+                            <option value="NOK">NOK - Norway Krone</option>
+                            <option value="NPR">NPR - Nepal Rupee</option>
+                            <option value="NZD">NZD - New Zealand Dollar</option>
+                            <option value="OMR">OMR - Oman Rial</option>
+                            <option value="PAB">PAB - Panama Balboa</option>
+                            <option value="PEN">PEN - Peru Sol</option>
+                            <option value="PGK">PGK - Papua New Guinea Kina</option>
+                            <option value="PHP">PHP - Philippines Peso</option>
+                            <option value="PKR">PKR - Pakistan Rupee</option>
+                            <option value="PLN">PLN - Poland Zloty</option>
+                            <option value="PYG">PYG - Paraguay Guarani</option>
+                            <option value="QAR">QAR - Qatar Riyal</option>
+                            <option value="RON">RON - Romania Leu</option>
+                            <option value="RSD">RSD - Serbia Dinar</option>
+                            <option value="RUB">RUB - Russia Ruble</option>
+                            <option value="RWF">RWF - Rwanda Franc</option>
+                            <option value="SAR">SAR - Saudi Arabia Riyal</option>
+                            <option value="SBD">SBD - Solomon Islands Dollar</option>
+                            <option value="SCR">SCR - Seychelles Rupee</option>
+                            <option value="SDG">SDG - Sudan Pound</option>
+                            <option value="SEK">SEK - Sweden Krona</option>
+                            <option value="SGD">SGD - Singapore Dollar</option>
+                            <option value="SHP">SHP - Saint Helena Pound</option>
+                            <option value="SLL">SLL - Sierra Leone Leone</option>
+                            <option value="SOS">SOS - Somalia Shilling</option>
+                            <option value="SPL">SPL - Seborga Luigino</option>
+                            <option value="SRD">SRD - Suriname Dollar</option>
+                            <option value="STN">STN - São Tomé and Príncipe Dobra</option>
+                            <option value="SVC">SVC - El Salvador Colon</option>
+                            <option value="SYP">SYP - Syria Pound</option>
+                            <option value="SZL">SZL - eSwatini Lilangeni</option>
+                            <option value="THB">THB - Thailand Baht</option>
+                            <option value="TJS">TJS - Tajikistan Somoni</option>
+                            <option value="TMT">TMT - Turkmenistan Manat</option>
+                            <option value="TND">TND - Tunisia Dinar</option>
+                            <option value="TOP">TOP - Tonga Pa'anga</option>
+                            <option value="TRY">TRY - Turkey Lira</option>
+                            <option value="TTD">TTD - Trinidad and Tobago Dollar</option>
+                            <option value="TVD">TVD - Tuvalu Dollar</option>
+                            <option value="TWD">TWD - Taiwan New Dollar</option>
+                            <option value="TZS">TZS - Tanzania Shilling</option>
+                            <option value="UAH">UAH - Ukraine Hryvnia</option>
+                            <option value="UGX">UGX - Uganda Shilling</option>
+                            <option value="USD" selected>USD - United States Dollar</option>
+                            <option value="UYU">UYU - Uruguay Peso</option>
+                            <option value="UZS">UZS - Uzbekistan Som</option>
+                            <option value="VEF">VEF - Venezuela Bolívar</option>
+                            <option value="VND">VND - Viet Nam Dong</option>
+                            <option value="VUV">VUV - Vanuatu Vatu</option>
+                            <option value="WST">WST - Samoa Tala</option>
+                            <option value="XAF">XAF - Communauté Financière Africaine (BEAC) CFA Franc BEAC</option>
+                            <option value="XCD">XCD - East Caribbean Dollar</option>
+                            <option value="XDR">XDR - International Monetary Fund (IMF) Special Drawing Rights</option>
+                            <option value="XOF">XOF - Communauté Financière Africaine (BCEAO) Franc</option>
+                            <option value="XPF">XPF - Comptoirs Français du Pacifique (CFP) Franc</option>
+                            <option value="YER">YER - Yemen Rial</option>
+                            <option value="ZAR">ZAR - South Africa Rand</option>
+                            <option value="ZMW">ZMW - Zambia Kwacha</option>
+                            <option value="ZWD">ZWD - Zimbabwe Dollar</option>
+                        </select>
+                    </div>
+                    <div class="pure-u-1 pure-u-md-1-2">
+                        <label for="target-currency">Target Currency</label>
+                        <select id="target-currency" class="pure-u-23-24">
+                            <option value="AED">AED - United Arab Emirates Dirham</option>
+                            <option value="AFN">AFN - Afghanistan Afghani</option>
+                            <option value="ALL">ALL - Albania Lek</option>
+                            <option value="AMD">AMD - Armenia Dram</option>
+                            <option value="ANG">ANG - Netherlands Antilles Guilder</option>
+                            <option value="AOA">AOA - Angola Kwanza</option>
+                            <option value="ARS">ARS - Argentina Peso</option>
+                            <option value="AUD">AUD - Australia Dollar</option>
+                            <option value="AWG">AWG - Aruba Guilder</option>
+                            <option value="AZN">AZN - Azerbaijan Manat</option>
+                            <option value="BAM">BAM - Bosnia and Herzegovina Convertible Mark</option>
+                            <option value="BBD">BBD - Barbados Dollar</option>
+                            <option value="BDT">BDT - Bangladesh Taka</option>
+                            <option value="BGN">BGN - Bulgaria Lev</option>
+                            <option value="BHD">BHD - Bahrain Dinar</option>
+                            <option value="BIF">BIF - Burundi Franc</option>
+                            <option value="BMD">BMD - Bermuda Dollar</option>
+                            <option value="BND">BND - Brunei Darussalam Dollar</option>
+                            <option value="BOB">BOB - Bolivia Bolíviano</option>
+                            <option value="BRL">BRL - Brazil Real</option>
+                            <option value="BSD">BSD - Bahamas Dollar</option>
+                            <option value="BTN">BTN - Bhutan Ngultrum</option>
+                            <option value="BWP">BWP - Botswana Pula</option>
+                            <option value="BYN">BYN - Belarus Ruble</option>
+                            <option value="BZD">BZD - Belize Dollar</option>
+                            <option value="CAD">CAD - Canada Dollar</option>
+                            <option value="CDF">CDF - Congo/Kinshasa Franc</option>
+                            <option value="CHF">CHF - Switzerland Franc</option>
+                            <option value="CLP">CLP - Chile Peso</option>
+                            <option value="CNY">CNY - China Yuan Renminbi</option>
+                            <option value="COP">COP - Colombia Peso</option>
+                            <option value="CRC">CRC - Costa Rica Colon</option>
+                            <option value="CUC">CUC - Cuba Convertible Peso</option>
+                            <option value="CUP">CUP - Cuba Peso</option>
+                            <option value="CVE">CVE - Cape Verde Escudo</option>
+                            <option value="CZK">CZK - Czech Republic Koruna</option>
+                            <option value="DJF">DJF - Djibouti Franc</option>
+                            <option value="DKK">DKK - Denmark Krone</option>
+                            <option value="DOP">DOP - Dominican Republic Peso</option>
+                            <option value="DZD">DZD - Algeria Dinar</option>
+                            <option value="EGP">EGP - Egypt Pound</option>
+                            <option value="ERN">ERN - Eritrea Nakfa</option>
+                            <option value="ETB">ETB - Ethiopia Birr</option>
+                            <option value="EUR">EUR - Euro Member Countries</option>
+                            <option value="FJD">FJD - Fiji Dollar</option>
+                            <option value="FKP">FKP - Falkland Islands (Malvinas) Pound</option>
+                            <option value="GBP">GBP - United Kingdom Pound</option>
+                            <option value="GEL">GEL - Georgia Lari</option>
+                            <option value="GGP">GGP - Guernsey Pound</option>
+                            <option value="GHS">GHS - Ghana Cedi</option>
+                            <option value="GIP">GIP - Gibraltar Pound</option>
+                            <option value="GMD">GMD - Gambia Dalasi</option>
+                            <option value="GNF">GNF - Guinea Franc</option>
+                            <option value="GTQ">GTQ - Guatemala Quetzal</option>
+                            <option value="GYD">GYD - Guyana Dollar</option>
+                            <option value="HKD">HKD - Hong Kong Dollar</option>
+                            <option value="HNL">HNL - Honduras Lempira</option>
+                            <option value="HRK">HRK - Croatia Kuna</option>
+                            <option value="HTG">HTG - Haiti Gourde</option>
+                            <option value="HUF">HUF - Hungary Forint</option>
+                            <option value="IDR">IDR - Indonesia Rupiah</option>
+                            <option value="ILS">ILS - Israel Shekel</option>
+                            <option value="IMP">IMP - Isle of Man Pound</option>
+                            <option value="INR">INR - India Rupee</option>
+                            <option value="IQD">IQD - Iraq Dinar</option>
+                            <option value="IRR">IRR - Iran Rial</option>
+                            <option value="ISK">ISK - Iceland Krona</option>
+                            <option value="JEP">JEP - Jersey Pound</option>
+                            <option value="JMD">JMD - Jamaica Dollar</option>
+                            <option value="JOD">JOD - Jordan Dinar</option>
+                            <option value="JPY">JPY - Japan Yen</option>
+                            <option value="KES">KES - Kenya Shilling</option>
+                            <option value="KGS">KGS - Kyrgyzstan Som</option>
+                            <option value="KHR">KHR - Cambodia Riel</option>
+                            <option value="KMF">KMF - Comorian Franc</option>
+                            <option value="KPW">KPW - Korea (North) Won</option>
+                            <option value="KRW">KRW - Korea (South) Won</option>
+                            <option value="KWD">KWD - Kuwait Dinar</option>
+                            <option value="KYD">KYD - Cayman Islands Dollar</option>
+                            <option value="KZT">KZT - Kazakhstan Tenge</option>
+                            <option value="LAK">LAK - Laos Kip</option>
+                            <option value="LBP">LBP - Lebanon Pound</option>
+                            <option value="LKR">LKR - Sri Lanka Rupee</option>
+                            <option value="LRD">LRD - Liberia Dollar</option>
+                            <option value="LSL">LSL - Lesotho Loti</option>
+                            <option value="LYD">LYD - Libya Dinar</option>
+                            <option value="MAD">MAD - Morocco Dirham</option>
+                            <option value="MDL">MDL - Moldova Leu</option>
+                            <option value="MGA">MGA - Madagascar Ariary</option>
+                            <option value="MKD">MKD - Macedonia Denar</option>
+                            <option value="MMK">MMK - Myanmar (Burma) Kyat</option>
+                            <option value="MNT">MNT - Mongolia Tughrik</option>
+                            <option value="MOP">MOP - Macau Pataca</option>
+                            <option value="MRU">MRU - Mauritania Ouguiya</option>
+                            <option value="MUR">MUR - Mauritius Rupee</option>
+                            <option value="MVR">MVR - Maldives (Maldive Islands) Rufiyaa</option>
+                            <option value="MWK">MWK - Malawi Kwacha</option>
+                            <option value="MXN">MXN - Mexico Peso</option>
+                            <option value="MYR">MYR - Malaysia Ringgit</option>
+                            <option value="MZN">MZN - Mozambique Metical</option>
+                            <option value="NAD">NAD - Namibia Dollar</option>
+                            <option value="NGN">NGN - Nigeria Naira</option>
+                            <option value="NIO">NIO - Nicaragua Cordoba</option>
+                            <option value="NOK">NOK - Norway Krone</option>
+                            <option value="NPR">NPR - Nepal Rupee</option>
+                            <option value="NZD" selected>NZD - New Zealand Dollar</option>
+                            <option value="OMR">OMR - Oman Rial</option>
+                            <option value="PAB">PAB - Panama Balboa</option>
+                            <option value="PEN">PEN - Peru Sol</option>
+                            <option value="PGK">PGK - Papua New Guinea Kina</option>
+                            <option value="PHP">PHP - Philippines Peso</option>
+                            <option value="PKR">PKR - Pakistan Rupee</option>
+                            <option value="PLN">PLN - Poland Zloty</option>
+                            <option value="PYG">PYG - Paraguay Guarani</option>
+                            <option value="QAR">QAR - Qatar Riyal</option>
+                            <option value="RON">RON - Romania Leu</option>
+                            <option value="RSD">RSD - Serbia Dinar</option>
+                            <option value="RUB">RUB - Russia Ruble</option>
+                            <option value="RWF">RWF - Rwanda Franc</option>
+                            <option value="SAR">SAR - Saudi Arabia Riyal</option>
+                            <option value="SBD">SBD - Solomon Islands Dollar</option>
+                            <option value="SCR">SCR - Seychelles Rupee</option>
+                            <option value="SDG">SDG - Sudan Pound</option>
+                            <option value="SEK">SEK - Sweden Krona</option>
+                            <option value="SGD">SGD - Singapore Dollar</option>
+                            <option value="SHP">SHP - Saint Helena Pound</option>
+                            <option value="SLL">SLL - Sierra Leone Leone</option>
+                            <option value="SOS">SOS - Somalia Shilling</option>
+                            <option value="SPL">SPL - Seborga Luigino</option>
+                            <option value="SRD">SRD - Suriname Dollar</option>
+                            <option value="STN">STN - São Tomé and Príncipe Dobra</option>
+                            <option value="SVC">SVC - El Salvador Colon</option>
+                            <option value="SYP">SYP - Syria Pound</option>
+                            <option value="SZL">SZL - eSwatini Lilangeni</option>
+                            <option value="THB">THB - Thailand Baht</option>
+                            <option value="TJS">TJS - Tajikistan Somoni</option>
+                            <option value="TMT">TMT - Turkmenistan Manat</option>
+                            <option value="TND">TND - Tunisia Dinar</option>
+                            <option value="TOP">TOP - Tonga Pa'anga</option>
+                            <option value="TRY">TRY - Turkey Lira</option>
+                            <option value="TTD">TTD - Trinidad and Tobago Dollar</option>
+                            <option value="TVD">TVD - Tuvalu Dollar</option>
+                            <option value="TWD">TWD - Taiwan New Dollar</option>
+                            <option value="TZS">TZS - Tanzania Shilling</option>
+                            <option value="UAH">UAH - Ukraine Hryvnia</option>
+                            <option value="UGX">UGX - Uganda Shilling</option>
+                            <option value="USD">USD - United States Dollar</option>
+                            <option value="UYU">UYU - Uruguay Peso</option>
+                            <option value="UZS">UZS - Uzbekistan Som</option>
+                            <option value="VEF">VEF - Venezuela Bolívar</option>
+                            <option value="VND">VND - Viet Nam Dong</option>
+                            <option value="VUV">VUV - Vanuatu Vatu</option>
+                            <option value="WST">WST - Samoa Tala</option>
+                            <option value="XAF">XAF - Communauté Financière Africaine (BEAC) CFA Franc BEAC</option>
+                            <option value="XCD">XCD - East Caribbean Dollar</option>
+                            <option value="XDR">XDR - International Monetary Fund (IMF) Special Drawing Rights</option>
+                            <option value="XOF">XOF - Communauté Financière Africaine (BCEAO) Franc</option>
+                            <option value="XPF">XPF - Comptoirs Français du Pacifique (CFP) Franc</option>
+                            <option value="YER">YER - Yemen Rial</option>
+                            <option value="ZAR">ZAR - South Africa Rand</option>
+                            <option value="ZMW">ZMW - Zambia Kwacha</option>
+                            <option value="ZWD">ZWD - Zimbabwe Dollar</option>
+                        </select>
+                    </div>
+                    <div class="pure-u-1 pure-u-md-1-2">
+                        <label for="from-date">From Date</label>
+                        <input id="from-date" class="pure-u-23-24" type="date" />
+                    </div>
+                    <div class="pure-u-1 pure-u-md-1-2">
+                        <label for="to-date">To Date</label>
+                        <input id="to-date" class="pure-u-23-24" type="date" />
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+        <div id="graph-container">
+            <svg />
+        </div>
+        </div>
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <script>
+        // Function to display alerts.
+        const alert = (info) => window.alert(info);
 
-      <form id="input-area" class="pure-form pure-form-stacked" style="height: 0px;">
+        // Function to query exchange history.
+        // The result will be a promise-wrapped array, for example:
+        //   [{ date: new Date('2020-01-01', rate: 1.05 }]
+        const query = (baseCurrency, targetCurrency, fromDate, toDate) =>
+            fetch(`https://api.frankfurter.app/${fromDate}..${toDate}?from=${baseCurrency}&to=${targetCurrency}`)
+            .then(response => response.json())
+            .then(({ error, rates }) => {
 
-        <fieldset>
-          <div class="pure-g">
-            <div class="pure-u-1 pure-u-md-1-2">
-              <label for="base-currency">
-                Base Currency
-              </label>
-              
-              <select id="base-currency" class="pure-u-23-24">
-								<option value="AED">AED - United Arab Emirates Dirham</option>
-								<option value="AFN">AFN - Afghanistan Afghani</option>
-								<option value="ALL">ALL - Albania Lek</option>
-								<option value="AMD">AMD - Armenia Dram</option>
-								<option value="ANG">ANG - Netherlands Antilles Guilder</option>
-								<option value="AOA">AOA - Angola Kwanza</option>
-								<option value="ARS">ARS - Argentina Peso</option>
-								<option value="AUD">AUD - Australia Dollar</option>
-								<option value="AWG">AWG - Aruba Guilder</option>
-								<option value="AZN">AZN - Azerbaijan Manat</option>
-								<option value="BAM">BAM - Bosnia and Herzegovina Convertible Mark</option>
-								<option value="BBD">BBD - Barbados Dollar</option>
-								<option value="BDT">BDT - Bangladesh Taka</option>
-								<option value="BGN">BGN - Bulgaria Lev</option>
-								<option value="BHD">BHD - Bahrain Dinar</option>
-								<option value="BIF">BIF - Burundi Franc</option>
-								<option value="BMD">BMD - Bermuda Dollar</option>
-								<option value="BND">BND - Brunei Darussalam Dollar</option>
-								<option value="BOB">BOB - Bolivia Bolíviano</option>
-								<option value="BRL">BRL - Brazil Real</option>
-								<option value="BSD">BSD - Bahamas Dollar</option>
-								<option value="BTN">BTN - Bhutan Ngultrum</option>
-								<option value="BWP">BWP - Botswana Pula</option>
-								<option value="BYN">BYN - Belarus Ruble</option>
-								<option value="BZD">BZD - Belize Dollar</option>
-								<option value="CAD">CAD - Canada Dollar</option>
-								<option value="CDF">CDF - Congo/Kinshasa Franc</option>
-								<option value="CHF">CHF - Switzerland Franc</option>
-								<option value="CLP">CLP - Chile Peso</option>
-								<option value="CNY">CNY - China Yuan Renminbi</option>
-								<option value="COP">COP - Colombia Peso</option>
-								<option value="CRC">CRC - Costa Rica Colon</option>
-								<option value="CUC">CUC - Cuba Convertible Peso</option>
-								<option value="CUP">CUP - Cuba Peso</option>
-								<option value="CVE">CVE - Cape Verde Escudo</option>
-								<option value="CZK">CZK - Czech Republic Koruna</option>
-								<option value="DJF">DJF - Djibouti Franc</option>
-								<option value="DKK">DKK - Denmark Krone</option>
-								<option value="DOP">DOP - Dominican Republic Peso</option>
-								<option value="DZD">DZD - Algeria Dinar</option>
-								<option value="EGP">EGP - Egypt Pound</option>
-								<option value="ERN">ERN - Eritrea Nakfa</option>
-								<option value="ETB">ETB - Ethiopia Birr</option>
-								<option value="EUR">EUR - Euro Member Countries</option>
-								<option value="FJD">FJD - Fiji Dollar</option>
-								<option value="FKP">FKP - Falkland Islands (Malvinas) Pound</option>
-								<option value="GBP">GBP - United Kingdom Pound</option>
-								<option value="GEL">GEL - Georgia Lari</option>
-								<option value="GGP">GGP - Guernsey Pound</option>
-								<option value="GHS">GHS - Ghana Cedi</option>
-								<option value="GIP">GIP - Gibraltar Pound</option>
-								<option value="GMD">GMD - Gambia Dalasi</option>
-								<option value="GNF">GNF - Guinea Franc</option>
-								<option value="GTQ">GTQ - Guatemala Quetzal</option>
-								<option value="GYD">GYD - Guyana Dollar</option>
-								<option value="HKD">HKD - Hong Kong Dollar</option>
-								<option value="HNL">HNL - Honduras Lempira</option>
-								<option value="HRK">HRK - Croatia Kuna</option>
-								<option value="HTG">HTG - Haiti Gourde</option>
-								<option value="HUF">HUF - Hungary Forint</option>
-								<option value="IDR">IDR - Indonesia Rupiah</option>
-								<option value="ILS">ILS - Israel Shekel</option>
-								<option value="IMP">IMP - Isle of Man Pound</option>
-								<option value="INR">INR - India Rupee</option>
-								<option value="IQD">IQD - Iraq Dinar</option>
-								<option value="IRR">IRR - Iran Rial</option>
-								<option value="ISK">ISK - Iceland Krona</option>
-								<option value="JEP">JEP - Jersey Pound</option>
-								<option value="JMD">JMD - Jamaica Dollar</option>
-								<option value="JOD">JOD - Jordan Dinar</option>
-								<option value="JPY">JPY - Japan Yen</option>
-								<option value="KES">KES - Kenya Shilling</option>
-								<option value="KGS">KGS - Kyrgyzstan Som</option>
-								<option value="KHR">KHR - Cambodia Riel</option>
-								<option value="KMF">KMF - Comorian Franc</option>
-								<option value="KPW">KPW - Korea (North) Won</option>
-								<option value="KRW">KRW - Korea (South) Won</option>
-								<option value="KWD">KWD - Kuwait Dinar</option>
-								<option value="KYD">KYD - Cayman Islands Dollar</option>
-								<option value="KZT">KZT - Kazakhstan Tenge</option>
-								<option value="LAK">LAK - Laos Kip</option>
-								<option value="LBP">LBP - Lebanon Pound</option>
-								<option value="LKR">LKR - Sri Lanka Rupee</option>
-								<option value="LRD">LRD - Liberia Dollar</option>
-								<option value="LSL">LSL - Lesotho Loti</option>
-								<option value="LYD">LYD - Libya Dinar</option>
-								<option value="MAD">MAD - Morocco Dirham</option>
-								<option value="MDL">MDL - Moldova Leu</option>
-								<option value="MGA">MGA - Madagascar Ariary</option>
-								<option value="MKD">MKD - Macedonia Denar</option>
-								<option value="MMK">MMK - Myanmar (Burma) Kyat</option>
-								<option value="MNT">MNT - Mongolia Tughrik</option>
-								<option value="MOP">MOP - Macau Pataca</option>
-								<option value="MRU">MRU - Mauritania Ouguiya</option>
-								<option value="MUR">MUR - Mauritius Rupee</option>
-								<option value="MVR">MVR - Maldives (Maldive Islands) Rufiyaa</option>
-								<option value="MWK">MWK - Malawi Kwacha</option>
-								<option value="MXN">MXN - Mexico Peso</option>
-								<option value="MYR">MYR - Malaysia Ringgit</option>
-								<option value="MZN">MZN - Mozambique Metical</option>
-								<option value="NAD">NAD - Namibia Dollar</option>
-								<option value="NGN">NGN - Nigeria Naira</option>
-								<option value="NIO">NIO - Nicaragua Cordoba</option>
-								<option value="NOK">NOK - Norway Krone</option>
-								<option value="NPR">NPR - Nepal Rupee</option>
-								<option value="NZD">NZD - New Zealand Dollar</option>
-								<option value="OMR">OMR - Oman Rial</option>
-								<option value="PAB">PAB - Panama Balboa</option>
-								<option value="PEN">PEN - Peru Sol</option>
-								<option value="PGK">PGK - Papua New Guinea Kina</option>
-								<option value="PHP">PHP - Philippines Peso</option>
-								<option value="PKR">PKR - Pakistan Rupee</option>
-								<option value="PLN">PLN - Poland Zloty</option>
-								<option value="PYG">PYG - Paraguay Guarani</option>
-								<option value="QAR">QAR - Qatar Riyal</option>
-								<option value="RON">RON - Romania Leu</option>
-								<option value="RSD">RSD - Serbia Dinar</option>
-								<option value="RUB">RUB - Russia Ruble</option>
-								<option value="RWF">RWF - Rwanda Franc</option>
-								<option value="SAR">SAR - Saudi Arabia Riyal</option>
-								<option value="SBD">SBD - Solomon Islands Dollar</option>
-								<option value="SCR">SCR - Seychelles Rupee</option>
-								<option value="SDG">SDG - Sudan Pound</option>
-								<option value="SEK">SEK - Sweden Krona</option>
-								<option value="SGD">SGD - Singapore Dollar</option>
-								<option value="SHP">SHP - Saint Helena Pound</option>
-								<option value="SLL">SLL - Sierra Leone Leone</option>
-								<option value="SOS">SOS - Somalia Shilling</option>
-								<option value="SPL">SPL - Seborga Luigino</option>
-								<option value="SRD">SRD - Suriname Dollar</option>
-								<option value="STN">STN - São Tomé and Príncipe Dobra</option>
-								<option value="SVC">SVC - El Salvador Colon</option>
-								<option value="SYP">SYP - Syria Pound</option>
-								<option value="SZL">SZL - eSwatini Lilangeni</option>
-								<option value="THB">THB - Thailand Baht</option>
-								<option value="TJS">TJS - Tajikistan Somoni</option>
-								<option value="TMT">TMT - Turkmenistan Manat</option>
-								<option value="TND">TND - Tunisia Dinar</option>
-								<option value="TOP">TOP - Tonga Pa'anga</option>
-								<option value="TRY">TRY - Turkey Lira</option>
-								<option value="TTD">TTD - Trinidad and Tobago Dollar</option>
-								<option value="TVD">TVD - Tuvalu Dollar</option>
-								<option value="TWD">TWD - Taiwan New Dollar</option>
-								<option value="TZS">TZS - Tanzania Shilling</option>
-								<option value="UAH">UAH - Ukraine Hryvnia</option>
-								<option value="UGX">UGX - Uganda Shilling</option>
-								<option value="USD" selected>USD - United States Dollar</option>
-								<option value="UYU">UYU - Uruguay Peso</option>
-								<option value="UZS">UZS - Uzbekistan Som</option>
-								<option value="VEF">VEF - Venezuela Bolívar</option>
-								<option value="VND">VND - Viet Nam Dong</option>
-								<option value="VUV">VUV - Vanuatu Vatu</option>
-								<option value="WST">WST - Samoa Tala</option>
-								<option value="XAF">XAF - Communauté Financière Africaine (BEAC) CFA Franc BEAC</option>
-								<option value="XCD">XCD - East Caribbean Dollar</option>
-								<option value="XDR">XDR - International Monetary Fund (IMF) Special Drawing Rights</option>
-								<option value="XOF">XOF - Communauté Financière Africaine (BCEAO) Franc</option>
-								<option value="XPF">XPF - Comptoirs Français du Pacifique (CFP) Franc</option>
-								<option value="YER">YER - Yemen Rial</option>
-								<option value="ZAR">ZAR - South Africa Rand</option>
-								<option value="ZMW">ZMW - Zambia Kwacha</option>
-								<option value="ZWD">ZWD - Zimbabwe Dollar</option>
-              </select>
-            </div>
-
-            <div class="pure-u-1 pure-u-md-1-2">
-              <label for="target-currency">Target Currency</label>
-              <select id="target-currency" class="pure-u-23-24">
-              	<option value="AED">AED - United Arab Emirates Dirham</option>
-								<option value="AFN">AFN - Afghanistan Afghani</option>
-								<option value="ALL">ALL - Albania Lek</option>
-								<option value="AMD">AMD - Armenia Dram</option>
-								<option value="ANG">ANG - Netherlands Antilles Guilder</option>
-								<option value="AOA">AOA - Angola Kwanza</option>
-								<option value="ARS">ARS - Argentina Peso</option>
-								<option value="AUD">AUD - Australia Dollar</option>
-								<option value="AWG">AWG - Aruba Guilder</option>
-								<option value="AZN">AZN - Azerbaijan Manat</option>
-								<option value="BAM">BAM - Bosnia and Herzegovina Convertible Mark</option>
-								<option value="BBD">BBD - Barbados Dollar</option>
-								<option value="BDT">BDT - Bangladesh Taka</option>
-								<option value="BGN">BGN - Bulgaria Lev</option>
-								<option value="BHD">BHD - Bahrain Dinar</option>
-								<option value="BIF">BIF - Burundi Franc</option>
-								<option value="BMD">BMD - Bermuda Dollar</option>
-								<option value="BND">BND - Brunei Darussalam Dollar</option>
-								<option value="BOB">BOB - Bolivia Bolíviano</option>
-								<option value="BRL">BRL - Brazil Real</option>
-								<option value="BSD">BSD - Bahamas Dollar</option>
-								<option value="BTN">BTN - Bhutan Ngultrum</option>
-								<option value="BWP">BWP - Botswana Pula</option>
-								<option value="BYN">BYN - Belarus Ruble</option>
-								<option value="BZD">BZD - Belize Dollar</option>
-								<option value="CAD">CAD - Canada Dollar</option>
-								<option value="CDF">CDF - Congo/Kinshasa Franc</option>
-								<option value="CHF">CHF - Switzerland Franc</option>
-								<option value="CLP">CLP - Chile Peso</option>
-								<option value="CNY">CNY - China Yuan Renminbi</option>
-								<option value="COP">COP - Colombia Peso</option>
-								<option value="CRC">CRC - Costa Rica Colon</option>
-								<option value="CUC">CUC - Cuba Convertible Peso</option>
-								<option value="CUP">CUP - Cuba Peso</option>
-								<option value="CVE">CVE - Cape Verde Escudo</option>
-								<option value="CZK">CZK - Czech Republic Koruna</option>
-								<option value="DJF">DJF - Djibouti Franc</option>
-								<option value="DKK">DKK - Denmark Krone</option>
-								<option value="DOP">DOP - Dominican Republic Peso</option>
-								<option value="DZD">DZD - Algeria Dinar</option>
-								<option value="EGP">EGP - Egypt Pound</option>
-								<option value="ERN">ERN - Eritrea Nakfa</option>
-								<option value="ETB">ETB - Ethiopia Birr</option>
-								<option value="EUR">EUR - Euro Member Countries</option>
-								<option value="FJD">FJD - Fiji Dollar</option>
-								<option value="FKP">FKP - Falkland Islands (Malvinas) Pound</option>
-								<option value="GBP">GBP - United Kingdom Pound</option>
-								<option value="GEL">GEL - Georgia Lari</option>
-								<option value="GGP">GGP - Guernsey Pound</option>
-								<option value="GHS">GHS - Ghana Cedi</option>
-								<option value="GIP">GIP - Gibraltar Pound</option>
-								<option value="GMD">GMD - Gambia Dalasi</option>
-								<option value="GNF">GNF - Guinea Franc</option>
-								<option value="GTQ">GTQ - Guatemala Quetzal</option>
-								<option value="GYD">GYD - Guyana Dollar</option>
-								<option value="HKD">HKD - Hong Kong Dollar</option>
-								<option value="HNL">HNL - Honduras Lempira</option>
-								<option value="HRK">HRK - Croatia Kuna</option>
-								<option value="HTG">HTG - Haiti Gourde</option>
-								<option value="HUF">HUF - Hungary Forint</option>
-								<option value="IDR">IDR - Indonesia Rupiah</option>
-								<option value="ILS">ILS - Israel Shekel</option>
-								<option value="IMP">IMP - Isle of Man Pound</option>
-								<option value="INR">INR - India Rupee</option>
-								<option value="IQD">IQD - Iraq Dinar</option>
-								<option value="IRR">IRR - Iran Rial</option>
-								<option value="ISK">ISK - Iceland Krona</option>
-								<option value="JEP">JEP - Jersey Pound</option>
-								<option value="JMD">JMD - Jamaica Dollar</option>
-								<option value="JOD">JOD - Jordan Dinar</option>
-								<option value="JPY">JPY - Japan Yen</option>
-								<option value="KES">KES - Kenya Shilling</option>
-								<option value="KGS">KGS - Kyrgyzstan Som</option>
-								<option value="KHR">KHR - Cambodia Riel</option>
-								<option value="KMF">KMF - Comorian Franc</option>
-								<option value="KPW">KPW - Korea (North) Won</option>
-								<option value="KRW">KRW - Korea (South) Won</option>
-								<option value="KWD">KWD - Kuwait Dinar</option>
-								<option value="KYD">KYD - Cayman Islands Dollar</option>
-								<option value="KZT">KZT - Kazakhstan Tenge</option>
-								<option value="LAK">LAK - Laos Kip</option>
-								<option value="LBP">LBP - Lebanon Pound</option>
-								<option value="LKR">LKR - Sri Lanka Rupee</option>
-								<option value="LRD">LRD - Liberia Dollar</option>
-								<option value="LSL">LSL - Lesotho Loti</option>
-								<option value="LYD">LYD - Libya Dinar</option>
-								<option value="MAD">MAD - Morocco Dirham</option>
-								<option value="MDL">MDL - Moldova Leu</option>
-								<option value="MGA">MGA - Madagascar Ariary</option>
-								<option value="MKD">MKD - Macedonia Denar</option>
-								<option value="MMK">MMK - Myanmar (Burma) Kyat</option>
-								<option value="MNT">MNT - Mongolia Tughrik</option>
-								<option value="MOP">MOP - Macau Pataca</option>
-								<option value="MRU">MRU - Mauritania Ouguiya</option>
-								<option value="MUR">MUR - Mauritius Rupee</option>
-								<option value="MVR">MVR - Maldives (Maldive Islands) Rufiyaa</option>
-								<option value="MWK">MWK - Malawi Kwacha</option>
-								<option value="MXN">MXN - Mexico Peso</option>
-								<option value="MYR">MYR - Malaysia Ringgit</option>
-								<option value="MZN">MZN - Mozambique Metical</option>
-								<option value="NAD">NAD - Namibia Dollar</option>
-								<option value="NGN">NGN - Nigeria Naira</option>
-								<option value="NIO">NIO - Nicaragua Cordoba</option>
-								<option value="NOK">NOK - Norway Krone</option>
-								<option value="NPR">NPR - Nepal Rupee</option>
-								<option value="NZD" selected>NZD - New Zealand Dollar</option>
-								<option value="OMR">OMR - Oman Rial</option>
-								<option value="PAB">PAB - Panama Balboa</option>
-								<option value="PEN">PEN - Peru Sol</option>
-								<option value="PGK">PGK - Papua New Guinea Kina</option>
-								<option value="PHP">PHP - Philippines Peso</option>
-								<option value="PKR">PKR - Pakistan Rupee</option>
-								<option value="PLN">PLN - Poland Zloty</option>
-								<option value="PYG">PYG - Paraguay Guarani</option>
-								<option value="QAR">QAR - Qatar Riyal</option>
-								<option value="RON">RON - Romania Leu</option>
-								<option value="RSD">RSD - Serbia Dinar</option>
-								<option value="RUB">RUB - Russia Ruble</option>
-								<option value="RWF">RWF - Rwanda Franc</option>
-								<option value="SAR">SAR - Saudi Arabia Riyal</option>
-								<option value="SBD">SBD - Solomon Islands Dollar</option>
-								<option value="SCR">SCR - Seychelles Rupee</option>
-								<option value="SDG">SDG - Sudan Pound</option>
-								<option value="SEK">SEK - Sweden Krona</option>
-								<option value="SGD">SGD - Singapore Dollar</option>
-								<option value="SHP">SHP - Saint Helena Pound</option>
-								<option value="SLL">SLL - Sierra Leone Leone</option>
-								<option value="SOS">SOS - Somalia Shilling</option>
-								<option value="SPL">SPL - Seborga Luigino</option>
-								<option value="SRD">SRD - Suriname Dollar</option>
-								<option value="STN">STN - São Tomé and Príncipe Dobra</option>
-								<option value="SVC">SVC - El Salvador Colon</option>
-								<option value="SYP">SYP - Syria Pound</option>
-								<option value="SZL">SZL - eSwatini Lilangeni</option>
-								<option value="THB">THB - Thailand Baht</option>
-								<option value="TJS">TJS - Tajikistan Somoni</option>
-								<option value="TMT">TMT - Turkmenistan Manat</option>
-								<option value="TND">TND - Tunisia Dinar</option>
-								<option value="TOP">TOP - Tonga Pa'anga</option>
-								<option value="TRY">TRY - Turkey Lira</option>
-								<option value="TTD">TTD - Trinidad and Tobago Dollar</option>
-								<option value="TVD">TVD - Tuvalu Dollar</option>
-								<option value="TWD">TWD - Taiwan New Dollar</option>
-								<option value="TZS">TZS - Tanzania Shilling</option>
-								<option value="UAH">UAH - Ukraine Hryvnia</option>
-								<option value="UGX">UGX - Uganda Shilling</option>
-								<option value="USD">USD - United States Dollar</option>
-								<option value="UYU">UYU - Uruguay Peso</option>
-								<option value="UZS">UZS - Uzbekistan Som</option>
-								<option value="VEF">VEF - Venezuela Bolívar</option>
-								<option value="VND">VND - Viet Nam Dong</option>
-								<option value="VUV">VUV - Vanuatu Vatu</option>
-								<option value="WST">WST - Samoa Tala</option>
-								<option value="XAF">XAF - Communauté Financière Africaine (BEAC) CFA Franc BEAC</option>
-								<option value="XCD">XCD - East Caribbean Dollar</option>
-								<option value="XDR">XDR - International Monetary Fund (IMF) Special Drawing Rights</option>
-								<option value="XOF">XOF - Communauté Financière Africaine (BCEAO) Franc</option>
-								<option value="XPF">XPF - Comptoirs Français du Pacifique (CFP) Franc</option>
-								<option value="YER">YER - Yemen Rial</option>
-								<option value="ZAR">ZAR - South Africa Rand</option>
-								<option value="ZMW">ZMW - Zambia Kwacha</option>
-								<option value="ZWD">ZWD - Zimbabwe Dollar</option>
-
-              </select>
-            </div>
-                                                                          
-            <div class="pure-u-1 pure-u-md-1-2">
-              <label for="from-date">From Date</label>
-              
-              <input id="from-date" class="pure-u-23-24" type="date" />
-            </div>
-
-            <div class="pure-u-1 pure-u-md-1-2">
-              <label for="to-date">To Date</label>
-              
-              <input id="to-date" class="pure-u-23-24" type="date" />
-            </div>
-          </div>
-        </fieldset>
-      </form>
-        
-      <div id="graph-container">
-        <svg />
-      </div>
-    </div>
-
-    <script src="https://d3js.org/d3.v5.min.js"></script>
-    <script>
-      // Function to display alerts.
-      const alert = (info) => window.alert(info);
-      
-      // Function to query exchange history.
-      // The result will be a promise-wrapped array, for example:
-      //   [{ date: new Date('2020-01-01', rate: 1.05 }]
-      const query = (baseCurrency, targetCurrency, fromDate, toDate) =>
-        fetch(`https://api.frankfurter.app/${fromDate}..${toDate}?from=${baseCurrency}&to=${targetCurrency}`)
-          .then(response => response.json())
-          .then(({ error, rates }) => {
-          
-            if (error) {
-              throw new Error(error);
-            }
-
-            return Object
-              .entries(rates)
-              .map(([date, rate]) => ({ date: new Date(date), rate: Math.floor(1000 * rate[targetCurrency]) / 1000 }))
-              .sort(({ date: x }, { date: y }) => x < y ? -1 : x > y ? 1 : 0)          
-          });
-      
-      // Function to render exchange history graph.
-      const renderGraph = (baseCurrency, targetCurrency, fromDate, toDate) => {
-          
-        // Validate parameters.
-        if (!baseCurrency || !targetCurrency || !fromDate || !toDate) {
-          return;
-        }
-        
-        const svg = d3.select("#graph-container").select('svg');
-
-        // Reset width & height.
-        svg.attr('width', null).attr('height', null);
-
-        // Clear old child-nodes.
-        svg.selectAll('*').remove();
-        
-        query(baseCurrency, targetCurrency, fromDate, toDate)
-          .then(dataset => {
-          
-            // Dimensions.
-            let 
-              width = document.getElementById('graph-container').clientWidth,
-              height = document.getElementById('graph-container').clientHeight,
-              padding = 50;
-
-            if (height > width) {
-
-              height = width;
-            }
-            
-            // Scales.
-            const
-              xScale = d3
-                .scaleTime()
-                .domain([d3.min(dataset, ({ date }) => date), d3.max(dataset, ({ date }) => date)])
-                .range([padding, width - padding]),
-              yScale = d3
-                .scaleLinear()
-                .domain([d3.min(dataset, ({ rate }) => rate), d3.max(dataset, ({ rate }) => rate)])
-                .range([height - padding, padding]);
-          
-            // Set width & height.
-            svg.attr("width", width).attr("height", height);
-            
-            // X-Axis.
-            svg
-              .append("g")
-              .attr("transform", `translate(0,${height - padding})`)
-              .call(d3.axisBottom(xScale));
-            
-            // Y-Axis.
-            svg
-              .append("g")
-              .attr("transform", `translate(${padding},0)`)
-              .call(d3.axisLeft(yScale));
-            
-            // Line.
-            svg
-              .append("path")
-              .datum(dataset)
-              .attr("fill", "none")
-              .attr("stroke", "yellow")
-              .attr("stroke-width", 1.0)
-              .attr("stroke-linejoin", "milter")
-              .attr("stroke-linecap", "round")
-              .attr("d", d3.line().x(({ date }) => xScale(date)).y(({ rate }) => yScale(rate)));
-          
-            // Tooltip.
-            const tooltip = svg.append('g').attr('display', 'none');
-          
-            const tooltipRatio = 0.8;
-          
-            tooltip
-              .append('rect')
-              .attr('width', 220 * tooltipRatio)
-              .attr('height', 60 * tooltipRatio)
-              .attr('fill', 'rgba(255, 255, 255, 0.9)')
-              .attr('stroke', 'black')
-              .attr('stroke-width', 1)
-              .attr('x', - 110 * tooltipRatio)
-              .attr('y', - 30 * tooltipRatio);
-
-            tooltip
-              .append('line')
-              .attr('x1', 0)
-              .attr('y1', -30 * tooltipRatio)
-              .attr('x2', 0)
-              .attr('y2', -10000)
-              .attr('stroke-width', 1.0)
-              .attr('stroke', 'white')
-              .attr('stroke-dasharray', '5,5');
- 
-            tooltip
-              .append('line')
-              .attr('x1', 0)
-              .attr('y1', 30 * tooltipRatio)
-              .attr('x2', 0)
-              .attr('y2', 10000)
-              .attr('stroke-width', 1.0)
-              .attr('stroke', 'white')
-              .attr('stroke-dasharray', '5,5');
-
-            tooltip
-              .append('line')
-              .attr('x1', -110 * tooltipRatio)
-              .attr('y1', 0)
-              .attr('x2', -10000)
-              .attr('y2', 0)
-              .attr('stroke-width', 1.0)
-              .attr('stroke', 'white')
-              .attr('stroke-dasharray', '5,5');
-
-            tooltip
-              .append('line')
-              .attr('x1', 110 * tooltipRatio)
-              .attr('y1', 0)
-              .attr('x2', 10000)
-              .attr('y2', 0)
-              .attr('stroke-width', 1.0)
-              .attr('stroke', 'white')
-              .attr('stroke-dasharray', '5,5');
-
-            const tooltipTextRows = [
-              tooltip
-                .append('text')
-                .attr('x', -103 * tooltipRatio)
-                .attr('y', -7 * tooltipRatio)
-                .attr('font-size', 16 * tooltipRatio),
-              tooltip
-                .append('text')
-                .attr('x', -103 * tooltipRatio)
-                .attr('y', 23 * tooltipRatio)
-                .attr('font-size', 16 * tooltipRatio),
-            ];
-          
-            svg.on("touchmove mousemove", () => {
-
-              const mouseX = d3.mouse(d3.event.currentTarget)[0];
-
-              let minDistance = Infinity, minOrder = null;
-
-              dataset.forEach(({ date, rate }, order) => {
-
-                const currentDistance = Math.abs(xScale(date) - mouseX);
-
-                if (currentDistance < minDistance) {
-
-                  minDistance = currentDistance;
-                  minOrder = order;
+                if (error) {
+                    throw new Error(error);
                 }
-              });
 
-              if (minOrder !== null) {
-
-                const { date, rate } = dataset[minOrder];
-
-                tooltip
-                  
-                  .attr('display', '')
-                  .attr('transform', `translate(${xScale(date)}, ${yScale(rate)})`);
-
-                tooltipTextRows[0].text(`1 ${baseCurrency} = ${rate} ${targetCurrency}`);
-                tooltipTextRows[1].text(`${date.toDateString()}`);
-              }
+                return Object
+                    .entries(rates)
+                    .map(([date, rate]) => ({ date: new Date(date), rate: Math.floor(1000 * rate[targetCurrency]) / 1000 }))
+                    .sort(({ date: x }, { date: y }) => x < y ? -1 : x > y ? 1 : 0)
             });
-          
-            // TODO: mouseleave...
-          })
-          .catch(err => {
 
-            // Alert errors.
-            alert(err);
-          });
-      };
+        // Function to render exchange history graph.
+        const renderGraph = (baseCurrency, targetCurrency, fromDate, toDate) => {
 
-      // Bind callback after the content has been loaded.
-      document.addEventListener('DOMContentLoaded', () => {
+            // Validate parameters.
+            if (!baseCurrency || !targetCurrency || !fromDate || !toDate) {
+                return;
+            }
 
-        // Get all input elements.
-        const inputs = {
-          baseCurrency: document.getElementById('base-currency'),
-          targetCurrency: document.getElementById('target-currency'),
-          fromDate: document.getElementById('from-date'),
-          toDate: document.getElementById('to-date'),
+            const svg = d3.select("#graph-container").select('svg');
+
+            // Reset width & height.
+            svg.attr('width', null).attr('height', null);
+
+            // Clear old child-nodes.
+            svg.selectAll('*').remove();
+
+            query(baseCurrency, targetCurrency, fromDate, toDate)
+                .then(dataset => {
+
+                    // Dimensions.
+                    let
+                        width = document.getElementById('graph-container').clientWidth,
+                        height = document.getElementById('graph-container').clientHeight,
+                        padding = 50;
+
+                    if (height > width) {
+
+                        height = width;
+                    }
+
+                    // Scales.
+                    const
+                        xScale = d3
+                        .scaleTime()
+                        .domain([d3.min(dataset, ({ date }) => date), d3.max(dataset, ({ date }) => date)])
+                        .range([padding, width - padding]),
+                        yScale = d3
+                        .scaleLinear()
+                        .domain([d3.min(dataset, ({ rate }) => rate), d3.max(dataset, ({ rate }) => rate)])
+                        .range([height - padding, padding]);
+
+                    // Set width & height.
+                    svg.attr("width", width).attr("height", height);
+
+                    // X-Axis.
+                    svg
+                        .append("g")
+                        .attr("transform", `translate(0,${height - padding})`)
+                        .call(d3.axisBottom(xScale));
+
+                    // Y-Axis.
+                    svg
+                        .append("g")
+                        .attr("transform", `translate(${padding},0)`)
+                        .call(d3.axisLeft(yScale));
+
+                    // Line.
+                    svg
+                        .append("path")
+                        .datum(dataset)
+                        .attr("fill", "none")
+                        .attr("stroke", "yellow")
+                        .attr("stroke-width", 1.0)
+                        .attr("stroke-linejoin", "milter")
+                        .attr("stroke-linecap", "round")
+                        .attr("d", d3.line().x(({ date }) => xScale(date)).y(({ rate }) => yScale(rate)));
+
+                    // Tooltip.
+                    const tooltip = svg.append('g').attr('display', 'none');
+
+                    const tooltipRatio = 0.8;
+
+                    tooltip
+                        .append('rect')
+                        .attr('width', 220 * tooltipRatio)
+                        .attr('height', 60 * tooltipRatio)
+                        .attr('fill', 'rgba(255, 255, 255, 0.9)')
+                        .attr('stroke', 'black')
+                        .attr('stroke-width', 1)
+                        .attr('x', -110 * tooltipRatio)
+                        .attr('y', -30 * tooltipRatio);
+
+                    tooltip
+                        .append('line')
+                        .attr('x1', 0)
+                        .attr('y1', -30 * tooltipRatio)
+                        .attr('x2', 0)
+                        .attr('y2', -10000)
+                        .attr('stroke-width', 1.0)
+                        .attr('stroke', 'white')
+                        .attr('stroke-dasharray', '5,5');
+
+                    tooltip
+                        .append('line')
+                        .attr('x1', 0)
+                        .attr('y1', 30 * tooltipRatio)
+                        .attr('x2', 0)
+                        .attr('y2', 10000)
+                        .attr('stroke-width', 1.0)
+                        .attr('stroke', 'white')
+                        .attr('stroke-dasharray', '5,5');
+
+                    tooltip
+                        .append('line')
+                        .attr('x1', -110 * tooltipRatio)
+                        .attr('y1', 0)
+                        .attr('x2', -10000)
+                        .attr('y2', 0)
+                        .attr('stroke-width', 1.0)
+                        .attr('stroke', 'white')
+                        .attr('stroke-dasharray', '5,5');
+
+                    tooltip
+                        .append('line')
+                        .attr('x1', 110 * tooltipRatio)
+                        .attr('y1', 0)
+                        .attr('x2', 10000)
+                        .attr('y2', 0)
+                        .attr('stroke-width', 1.0)
+                        .attr('stroke', 'white')
+                        .attr('stroke-dasharray', '5,5');
+
+                    const tooltipTextRows = [
+                        tooltip
+                        .append('text')
+                        .attr('x', -103 * tooltipRatio)
+                        .attr('y', -7 * tooltipRatio)
+                        .attr('font-size', 16 * tooltipRatio),
+                        tooltip
+                        .append('text')
+                        .attr('x', -103 * tooltipRatio)
+                        .attr('y', 23 * tooltipRatio)
+                        .attr('font-size', 16 * tooltipRatio),
+                    ];
+
+                    svg.on("touchmove mousemove", () => {
+
+                        const mouseX = d3.mouse(d3.event.currentTarget)[0];
+
+                        let minDistance = Infinity,
+                            minOrder = null;
+
+                        dataset.forEach(({ date, rate }, order) => {
+
+                            const currentDistance = Math.abs(xScale(date) - mouseX);
+
+                            if (currentDistance < minDistance) {
+
+                                minDistance = currentDistance;
+                                minOrder = order;
+                            }
+                        });
+
+                        if (minOrder !== null) {
+
+                            const { date, rate } = dataset[minOrder];
+
+                            tooltip
+
+                                .attr('display', '')
+                                .attr('transform', `translate(${xScale(date)}, ${yScale(rate)})`);
+
+                            tooltipTextRows[0].text(`1 ${baseCurrency} = ${rate} ${targetCurrency}`);
+                            tooltipTextRows[1].text(`${date.toDateString()}`);
+                        }
+                    });
+
+                    // TODO: mouseleave...
+                })
+                .catch(err => {
+
+                    // Alert errors.
+                    alert(err);
+                });
         };
-        
-        // Function to refresh graph.
-        const refreshGraph = () => {
-          
-          const
-            baseCurrency = inputs.baseCurrency.value,
-            targetCurrency = inputs.targetCurrency.value,
-            fromDate = inputs.fromDate.value,
-            toDate = inputs.toDate.value;
-          
-          window.localStorage.formData = JSON.stringify({
-            baseCurrency, targetCurrency, fromDate, toDate
-          });
-          
-          renderGraph(baseCurrency, targetCurrency, fromDate, toDate);
-        }
-        
-        // Bind refresh callback for input changes.
-        Object
-          .values(inputs)
-          .forEach(input => input.addEventListener('change', refreshGraph));
 
-        // Bind refresh callback for resizing window.
-        window.addEventListener('resize', refreshGraph);
+        // Bind callback after the content has been loaded.
+        document.addEventListener('DOMContentLoaded', () => {
 
-        const inputArea = document.getElementById('input-area');
-        
-        // Function to toggle visibility of input form.
-        const toggleInputArea = () => {
+            // Get all input elements.
+            const inputs = {
+                baseCurrency: document.getElementById('base-currency'),
+                targetCurrency: document.getElementById('target-currency'),
+                fromDate: document.getElementById('from-date'),
+                toDate: document.getElementById('to-date'),
+            };
 
-          if (inputArea.style.height === '0px') {
+            // Function to refresh graph.
+            const refreshGraph = () => {
 
-            window.localStorage.showInput = inputArea.style.height = null;
-          } else {
+                const
+                    baseCurrency = inputs.baseCurrency.value,
+                    targetCurrency = inputs.targetCurrency.value,
+                    fromDate = inputs.fromDate.value,
+                    toDate = inputs.toDate.value;
 
-            window.localStorage.showInput = inputArea.style.height = '0px';
-          }
+                window.localStorage.formData = JSON.stringify({
+                    baseCurrency,
+                    targetCurrency,
+                    fromDate,
+                    toDate
+                });
 
-          refreshGraph();
-        };
+                renderGraph(baseCurrency, targetCurrency, fromDate, toDate);
+            }
 
-        document.getElementById('menu-button').addEventListener('click', toggleInputArea);
+            // Bind refresh callback for input changes.
+            Object
+                .values(inputs)
+                .forEach(input => input.addEventListener('change', refreshGraph));
 
-        if (window.localStorage.showInput !== '0px') {
+            // Bind refresh callback for resizing window.
+            window.addEventListener('resize', refreshGraph);
 
-          inputArea.style.height = null;
-        }
+            const inputArea = document.getElementById('input-area');
 
-        // Restore input status.
-        if (window.localStorage.formData) {
-          
-          try {
-            const { baseCurrency, targetCurrency, fromDate, toDate } = JSON.parse(window.localStorage.formData);
-           
-            inputs.baseCurrency.value = baseCurrency;
-            inputs.targetCurrency.value = targetCurrency;
-            inputs.fromDate.value = fromDate;
-            inputs.toDate.value = toDate;
+            // Function to toggle visibility of input form.
+            const toggleInputArea = () => {
 
-            renderGraph(baseCurrency, targetCurrency, fromDate, toDate);
-          } catch (error) {
-            
-            console.error(error);
-          }
-        } else {
+                if (inputArea.style.height === '0px') {
 
-          try {
-            const baseCurrency = 'NZD';
-            const targetCurrency = 'CNY';
+                    window.localStorage.showInput = inputArea.style.height = null;
+                } else {
 
-            const fromDate = new Date(Date.now() - 1000 * 3600 * 24 * 365)
-              .toISOString().substr(0, 10);
+                    window.localStorage.showInput = inputArea.style.height = '0px';
+                }
 
-            const toDate = new Date(Date.now())
-              .toISOString().substr(0, 10);
-           
-            inputs.baseCurrency.value = baseCurrency;
-            inputs.targetCurrency.value = targetCurrency;
-            inputs.fromDate.value = fromDate;
-            inputs.toDate.value = toDate;
+                refreshGraph();
+            };
 
-            renderGraph(baseCurrency, targetCurrency, fromDate, toDate);
-          } catch (error) {
-            
-            console.error(error);
-          }
+            document.getElementById('menu-button').addEventListener('click', toggleInputArea);
 
-        }
-      });
-    </script>
-  </body>
+            if (window.localStorage.showInput !== '0px') {
+
+                inputArea.style.height = null;
+            }
+
+            // Restore input status.
+            if (window.localStorage.formData) {
+
+                try {
+                    const { baseCurrency, targetCurrency, fromDate, toDate } = JSON.parse(window.localStorage.formData);
+
+                    inputs.baseCurrency.value = baseCurrency;
+                    inputs.targetCurrency.value = targetCurrency;
+                    inputs.fromDate.value = fromDate;
+                    inputs.toDate.value = toDate;
+
+                    renderGraph(baseCurrency, targetCurrency, fromDate, toDate);
+                } catch (error) {
+
+                    console.error(error);
+                }
+            } else {
+
+                try {
+                    const baseCurrency = 'NZD';
+                    const targetCurrency = 'CNY';
+
+                    const fromDate = new Date(Date.now() - 1000 * 3600 * 24 * 365)
+                        .toISOString().substr(0, 10);
+
+                    const toDate = new Date(Date.now())
+                        .toISOString().substr(0, 10);
+
+                    inputs.baseCurrency.value = baseCurrency;
+                    inputs.targetCurrency.value = targetCurrency;
+                    inputs.fromDate.value = fromDate;
+                    inputs.toDate.value = toDate;
+
+                    renderGraph(baseCurrency, targetCurrency, fromDate, toDate);
+                } catch (error) {
+
+                    console.error(error);
+                }
+
+            }
+        });
+        </script>
+</body>
+
 </html>
