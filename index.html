@@ -451,12 +451,11 @@
       // The result will be a promise-wrapped array, for example:
       //   [{ date: new Date('2020-01-01', rate: 1.05 }]
       const query = (baseCurrency, targetCurrency, fromDate, toDate) =>
-        fetch(`https://api.exchangeratesapi.io/history?base=${baseCurrency}&symbols=${targetCurrency}&start_at=${fromDate}&end_at=${toDate}`)
+        fetch(`https://api.frankfurter.app/${fromDate}..${toDate}?from=${baseCurrency}&to=${targetCurrency}`)
           .then(response => response.json())
           .then(({ error, rates }) => {
           
             if (error) {
-
               throw new Error(error);
             }
 
