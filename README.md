@@ -1,7 +1,6 @@
 # Exchange Rate Viewer.
 
-![](https://raw.githubusercontent.com/aguang-xyz/exchange-rate/master/images/preview.png)
+An online exchange rate viewer based on [D3.js](https://d3js.org/), [Pure.CSS](https://purecss.io/) and [Frankfurter API](https://www.frankfurter.app/).
 
-[Exchange rate viewer](https://aguang-xyz.github.io/exchange-rate-viewer/) is developed by using [d3.js](https://d3js.org/) and [pure.css](https://purecss.io/).
+[![](https://raw.githubusercontent.com/aguang-xyz/exchange-rate/master/images/preview.png)](https://aguang-xyz.github.io/exchange-rate-viewer/)
 
-The exchange rates API is powered by [Frankfurter](https://www.frankfurter.app/)
